@@ -1,0 +1,162 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task Master - Simple Task Management</title>
+    <meta name="description" content="Simple Task Management Web App" />
+    <meta name="author" content="Lovable" />
+
+    <meta property="og:title" content="Task Master" />
+    <meta property="og:description" content="Simple Task Management Web App" />
+    <meta property="og:type" content="website" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <!-- Login Page -->
+    <div id="loginPage" class="login-container">
+      <div class="login-box">
+        <h1>Task Master</h1>
+        <p>Please login to continue</p>
+        <form id="loginForm">
+          <div class="input-group">
+            <input 
+              type="text" 
+              id="username" 
+              placeholder="Enter username" 
+              required
+            />
+          </div>
+          <div class="input-group">
+            <input 
+              type="password" 
+              id="password" 
+              placeholder="Enter password" 
+              required
+            />
+          </div>
+          <button type="submit" class="login-btn">Login</button>
+        </form>
+        <div id="loginError" class="error-message" style="display: none;"></div>
+      </div>
+    </div>
+
+    <!-- Main App -->
+    <div id="mainApp" class="container" style="display: none;">
+      <header class="header">
+        <div class="header-content">
+          <div>
+            <h1>Task Master</h1>
+            <p>Welcome back, <span id="welcomeUser"></span>!</p>
+          </div>
+          <button id="logoutBtn" class="logout-btn">Logout</button>
+        </div>
+      </header>
+
+      <main class="main-content">
+        <!-- Navigation Tabs -->
+        <div class="nav-tabs">
+          <button id="todayTab" class="tab-btn active">Today's Tasks</button>
+          <button id="weeklyTab" class="tab-btn">Weekly Planner</button>
+        </div>
+
+        <!-- Today's Tasks Section -->
+        <section id="todaySection" class="tab-content active">
+          <div class="task-input-section">
+            <div class="input-group">
+              <input 
+                type="text" 
+                id="taskInput" 
+                placeholder="Enter your task..." 
+                maxlength="200"
+              />
+              <button id="createTaskBtn" class="create-btn">
+                Create Task
+              </button>
+            </div>
+          </div>
+
+          <div class="tasks-container">
+            <div class="tasks-section">
+              <h2>Pending Tasks</h2>
+              <div id="pendingTasks" class="task-list">
+                <div class="empty-state">
+                  <p>No pending tasks. Add one above!</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="tasks-section">
+              <h2>Completed Tasks</h2>
+              <div id="completedTasks" class="task-list">
+                <div class="empty-state">
+                  <p>No completed tasks yet.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Weekly Planner Section -->
+        <section id="weeklySection" class="tab-content">
+          <div class="weekly-input-section">
+            <h2>Add Weekly Task</h2>
+            <div class="weekly-form">
+              <input 
+                type="text" 
+                id="weeklyTaskInput" 
+                placeholder="Enter weekly task..." 
+                maxlength="200"
+              />
+              <input 
+                type="datetime-local" 
+                id="taskDeadline" 
+                required
+              />
+              <button id="createWeeklyTaskBtn" class="create-btn">
+                Add Task
+              </button>
+            </div>
+          </div>
+
+          <div class="weekly-tasks-container">
+            <div class="tasks-section">
+              <h2>Upcoming Tasks</h2>
+              <div id="upcomingTasks" class="task-list">
+                <div class="empty-state">
+                  <p>No upcoming tasks. Add one above!</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="tasks-section">
+              <h2>Overdue Tasks</h2>
+              <div id="overdueTasks" class="task-list">
+                <div class="empty-state">
+                  <p>No overdue tasks.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="tasks-section">
+              <h2>Completed Weekly Tasks</h2>
+              <div id="completedWeeklyTasks" class="task-list">
+                <div class="empty-state">
+                  <p>No completed weekly tasks yet.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
